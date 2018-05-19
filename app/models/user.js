@@ -1,22 +1,13 @@
-// Example model
-
-
+'use strict';
 module.exports = (sequelize, DataTypes) => {
-
-    const User = sequelize.define('User', {
-      email: DataTypes.STRING,
-      password: DataTypes.STRING,
-      name: DataTypes.STRING
-    }, {
-      classMethods: {
-        associate: (models) => {
-          // example on how to add relations
-          User.hasMany(models.Ticket)
-        }
-      }
-    });
-  
-    return User;
+  var User = sequelize.define('User', {
+    email: DataTypes.STRING,
+    password: DataTypes.STRING,
+    name: DataTypes.STRING
+  }, {});
+  User.associate = function(models) {
+    // associations can be defined here
+    User.hasMany(models.Ticket)
   };
-  
-  
+  return User;
+};

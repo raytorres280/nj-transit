@@ -8,21 +8,3 @@ module.exports = (app) => {
 
 
 //find stops available from start/end
-router.get('/:startId/:endId', (req, res, next) => {
-  let {startId, endId} = req.params
-  db.Stop.find({
-      where: {
-        // op.or stationID == startID or endID
-      }
-  }).then(stops => {
-      let pairs = {}
-      stops.map(item => {
-        if(!pairs[item.trainId + ""]) {
-            pairs[item.trainId + ""] = [item]
-        } else {
-            pairs[item.trainId + ""].push(item)
-        }
-      })
-      return pairs
-  }).then(pairs => res.json(pairs))
-});

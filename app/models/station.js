@@ -1,20 +1,10 @@
-// Example model
-
-
+'use strict';
 module.exports = (sequelize, DataTypes) => {
-
-    const Station = sequelize.define('Station', {
-        name: DataTypes.STRING,
-        createdAt: DataTypes.DATE,
-    }, {
-        classMethods: {
-            associate: (models) => {
-                Station.hasMany(models.Stop)
-            }
-        }
-    });
-
-    return Station;
+  var Station = sequelize.define('Station', {
+    name: DataTypes.STRING
+  }, {});
+  Station.associate = function(models) {
+    // associations can be defined here
   };
-  
-  
+  return Station;
+};
