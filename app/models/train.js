@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Train.associate = function(models) {
     // associations can be defined here
+    Train.hasMany(models.Stop)
   };
   return Train;
 };

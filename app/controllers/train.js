@@ -34,14 +34,14 @@ router.get('/:startId/:endId', (req, res, next) => {
         })
         let filteredResults = Object.keys(pairs)
         .filter(key => pairs[key].length > 1)
-        let validTrainIdArr = Object.keys(filteredResults).map(item => parseInt(item))
+        let validTrainIdArr = filteredResults.map(item => ({ id: parseInt(item) }))
         return db.Train.find({
             where: {
                 [Op.or]: validTrainIdArr
             },
             include: [{
                 model: db.Stop,
-                include: [db.Station]
+                include: [{ model: db.Station}]
             }]
         })
     }).then(trains => res.json(trains))

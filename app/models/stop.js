@@ -6,6 +6,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Stop.associate = function(models) {
     // associations can be defined here
+    Stop.belongsTo(models.Train);
+    Stop.belongsTo(models.Station, {foreignKey: 'StationId'});
   };
   return Stop;
 };
