@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+.barcode-meme {
+  width: 1280px;
+  height: 720px;
+}

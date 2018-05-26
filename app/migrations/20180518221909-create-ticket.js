@@ -36,6 +36,18 @@ module.exports = {
           model: 'Stops',
           key: 'id'
         }
+      },
+      total: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0
+      },
+      barcodeData: {
+        type: Sequelize.STRING,
+        defaultValue: null
+      },
+      status: {
+        type: Sequelize.ENUM,
+        values: ['VALID', 'ACTIVE', 'INVALID']
       }
     });
   },
